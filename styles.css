@@ -164,6 +164,14 @@ a:hover { color: var(--accent); }
   text-transform: uppercase;
   overflow-wrap: anywhere;
 }
+#about { text-align: center; }
+.about-text {
+  max-width: 30ch;
+  margin: 0 auto;
+  font: 700 clamp(24px, 3.2vw, 44px)/1.15 var(--heading);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
 #contact { padding-bottom: clamp(140px, 20vw, 240px); text-align: center; }
 
 .button {
