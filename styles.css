@@ -1,0 +1,223 @@
+/* Kunal Parmar: brand tokens from brand/BRAND.md ("Deep teal", Archivo Narrow / Inter).
+   Layout references: dinperlis.com (edge-to-edge work grid), donprod.uk (corner UI, crop marks, counter). */
+:root {
+  --bg: #0B0D0E;
+  --text: #E6E8E6;
+  --accent: #1F9C94;
+  --muted: #6B7775;
+  --line: rgba(230, 232, 230, 0.12);
+  --heading: "Archivo Narrow", "Arial Narrow", sans-serif;
+  --body: "Inter", system-ui, sans-serif;
+  --edge: clamp(16px, 2.2vw, 28px);
+}
+
+* { box-sizing: border-box; margin: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font: 400 16px/1.5 var(--body);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Fine grain over everything: a nod to the grungy look of the videos. Delete this block to remove it. */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  pointer-events: none;
+  opacity: 0.06;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+a { color: inherit; text-decoration: none; }
+a:hover { color: var(--accent); }
+
+.muted { color: var(--muted); }
+
+/* Corner UI: small, letter-spaced, pinned to the four corners */
+.corner {
+  position: fixed;
+  z-index: 20;
+  display: flex;
+  gap: 20px;
+  font: 500 11px/1 var(--body);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  mix-blend-mode: difference;
+}
+.top-left { top: var(--edge); left: var(--edge); }
+.top-right { top: var(--edge); right: var(--edge); }
+.bottom-left { bottom: var(--edge); left: var(--edge); }
+.bottom-right { bottom: var(--edge); right: var(--edge); }
+.corner .muted { mix-blend-mode: normal; }
+
+.wordmark { font: 700 14px/1 var(--heading); letter-spacing: 0.22em; }
+
+/* Featured loop inside crop marks */
+.featured {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  padding: 72px var(--edge);
+}
+
+.crop {
+  position: relative;
+  width: min(100%, 1100px);
+  padding: 14px;
+}
+.crop::before, .crop::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  /* four corner marks */
+  background:
+    linear-gradient(var(--text), var(--text)) top left / 18px 1px,
+    linear-gradient(var(--text), var(--text)) top left / 1px 18px,
+    linear-gradient(var(--text), var(--text)) top right / 18px 1px,
+    linear-gradient(var(--text), var(--text)) top right / 1px 18px,
+    linear-gradient(var(--text), var(--text)) bottom left / 18px 1px,
+    linear-gradient(var(--text), var(--text)) bottom left / 1px 18px,
+    linear-gradient(var(--text), var(--text)) bottom right / 18px 1px,
+    linear-gradient(var(--text), var(--text)) bottom right / 1px 18px;
+  background-repeat: no-repeat;
+  opacity: 0.7;
+}
+.crop::after { display: none; }
+
+.credit {
+  font: 500 11px/1 var(--body);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+/* Frames (placeholders until real stills / loops go in) */
+.frame {
+  aspect-ratio: 16 / 9;
+  background: #121617;
+  display: grid;
+  place-items: center;
+  color: var(--muted);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  overflow: hidden;
+}
+.frame img, .frame video { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* Work index: edge-to-edge, two columns, hairline gaps */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2px;
+  scroll-margin-top: 0;
+}
+.tile { position: relative; display: block; }
+.tile .frame { background: #101415; transition: filter 0.4s; }
+.tile:nth-child(odd) .frame { background: #131819; }
+
+.caption {
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  bottom: 14px;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font: 700 clamp(14px, 1.4vw, 18px)/1.1 var(--heading);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.3s, transform 0.3s;
+}
+.tile:hover .caption, .tile:focus-visible .caption { opacity: 1; transform: none; }
+.tile:hover .frame { filter: brightness(0.7); }
+.tile:hover { color: var(--text); }
+
+/* About / contact: one quiet statement each */
+.info {
+  padding: clamp(96px, 16vw, 200px) var(--edge);
+  border-top: 1px solid var(--line);
+}
+.label {
+  font: 500 11px/1 var(--body);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 28px;
+}
+.statement {
+  display: block;
+  max-width: 22ch;
+  font: 700 clamp(32px, 5.5vw, 76px)/1 var(--heading);
+  text-transform: uppercase;
+  overflow-wrap: anywhere;
+}
+#contact { padding-bottom: clamp(140px, 20vw, 240px); text-align: center; }
+
+.button {
+  display: inline-block;
+  margin-top: 40px;
+  padding: 16px 28px;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  font: 500 12px/1 var(--body);
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  transition: background 0.25s, color 0.25s;
+}
+.label + .button { margin-top: 0; }
+.button:hover, .button:focus-visible { background: var(--accent); color: var(--bg); }
+
+/* Player overlay */
+.player {
+  width: 100vw;
+  max-width: 100vw;
+  height: 100vh;
+  max-height: 100vh;
+  margin: 0;
+  padding: var(--edge);
+  border: 0;
+  background: transparent;
+  color: var(--text);
+  place-items: center;
+}
+.player[open] { display: grid; }
+.player::backdrop { background: rgba(11, 13, 14, 0.96); }
+.screen { width: min(100%, 1280px, calc((100vh - 120px) * 16 / 9)); aspect-ratio: 16 / 9; }
+.screen iframe { width: 100%; height: 100%; border: 0; display: block; }
+.close {
+  position: fixed;
+  top: var(--edge);
+  right: var(--edge);
+  background: none;
+  border: 0;
+  color: var(--text);
+  cursor: pointer;
+  font: 500 11px/1 var(--body);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+.close:hover { color: var(--accent); }
+
+/* Phones: one column, captions always visible (no hover on touch) */
+@media (max-width: 700px) {
+  .grid { grid-template-columns: 1fr; }
+  .caption { opacity: 1; transform: none; }
+  .top-right { gap: 14px; }
+  #now-title { display: none; }
+}
+
+/* 4:3 videos: YouTube pillarboxes their thumbnails; zoom past the side bars to fill the 16:9 tile */
+.frame img.fill-4x3 { transform: scale(1.334); }

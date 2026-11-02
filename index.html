@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kunal Parmar | Director</title>
+  <meta name="description" content="Kunal Parmar directs, edits and shoots music videos and reels for music artists across Canada.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=2">
+</head>
+<body>
+  <!-- Corner UI, fixed over everything -->
+  <header class="corner top-left"><a class="wordmark" href="#top">Kunal Parmar</a></header>
+  <nav class="corner top-right">
+    <a href="#work">Work</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <div class="corner bottom-left">
+    <span id="now-artist">Artist</span>
+    <span id="now-title" class="muted">Title</span>
+  </div>
+  <div class="corner bottom-right">
+    <span id="now-count">01</span><span class="muted"> – <span id="total-count">04</span></span>
+  </div>
+
+  <main id="top">
+    <!-- Featured: silent 25s showreel loop inside crop marks (media/opener.mp4, cut from the final exports). -->
+    <section class="featured" data-artist="Showreel" data-title="">
+      <div class="crop">
+        <div class="frame"><video src="media/opener.mp4?v=3" poster="media/opener-poster.jpg?v=3" autoplay muted loop playsinline preload="auto" aria-label="Showreel"></video></div>
+      </div>
+      <p class="credit">DIR: Kunal Parmar</p>
+    </section>
+
+    <!-- Work index: edge-to-edge grid, one tile per video. data-yt is the YouTube id (opens the player);
+         data-artist / data-title feed the corner readout as the tile scrolls into view.
+         Thumbnails come from YouTube; swap an <img> for a muted loop from the exports to make a tile move. -->
+    <section id="work" class="grid">
+      <a class="tile" href="https://www.youtube.com/watch?v=xV3BI4IyJow" data-yt="xV3BI4IyJow" data-artist="Kanda." data-title="Ball Out ft. Graedo">
+        <div class="frame"><img src="https://i.ytimg.com/vi/xV3BI4IyJow/maxresdefault.jpg" alt="Kanda.: Ball Out ft. Graedo" loading="lazy"></div>
+        <div class="caption"><span>Kanda.</span><span>Ball Out ft. Graedo</span></div>
+      </a>
+      <a class="tile" href="https://www.youtube.com/watch?v=NNvDm1cK96U" data-yt="NNvDm1cK96U" data-artist="Romeo" data-title="No Probllama">
+        <div class="frame"><img src="https://i.ytimg.com/vi/NNvDm1cK96U/maxresdefault.jpg" alt="Romeo: No Probllama" loading="lazy"></div>
+        <div class="caption"><span>Romeo</span><span>No Probllama</span></div>
+      </a>
+      <a class="tile" href="https://www.youtube.com/watch?v=rQbustA4fa8" data-yt="rQbustA4fa8" data-artist="Fidelina" data-title="Long Way Home (Live Session)">
+        <div class="frame"><img src="https://i.ytimg.com/vi/rQbustA4fa8/sddefault.jpg" alt="Fidelina: Long Way Home (Live Session)" loading="lazy"></div>
+        <div class="caption"><span>Fidelina</span><span>Long Way Home (Live Session)</span></div>
+      </a>
+      <a class="tile" href="https://www.youtube.com/watch?v=-YxYGiH8oDE" data-yt="-YxYGiH8oDE" data-artist="EB3N" data-title="Sing Something (Live Session)">
+        <div class="frame"><img src="https://i.ytimg.com/vi/-YxYGiH8oDE/sddefault.jpg" alt="EB3N: Sing Something (Live Session)" loading="lazy"></div>
+        <div class="caption"><span>EB3N</span><span>Sing Something (Live Session)</span></div>
+      </a>
+      <a class="tile" href="https://www.youtube.com/watch?v=l5WN891tNLo" data-yt="l5WN891tNLo" data-artist="Jr. Rhodes" data-title="If You Go..">
+        <div class="frame"><img src="https://i.ytimg.com/vi/l5WN891tNLo/maxresdefault.jpg" alt="Jr. Rhodes: If You Go.." loading="lazy"></div>
+        <div class="caption"><span>Jr. Rhodes</span><span>If You Go..</span></div>
+      </a>
+      <a class="tile" href="https://www.youtube.com/watch?v=sGyr6aqgTco" data-yt="sGyr6aqgTco" data-artist="Dave Augvst" data-title="Pisces">
+        <div class="frame"><img src="https://i.ytimg.com/vi/sGyr6aqgTco/maxresdefault.jpg" alt="Dave Augvst: Pisces" loading="lazy"></div>
+        <div class="caption"><span>Dave Augvst</span><span>Pisces</span></div>
+      </a>
+      <a class="tile" href="https://www.youtube.com/watch?v=sTsqLyDwpWk" data-yt="sTsqLyDwpWk" data-artist="Tomi Lumiere" data-title="Only You ft. DIA">
+        <div class="frame"><img src="https://i.ytimg.com/vi/sTsqLyDwpWk/maxresdefault.jpg" alt="Tomi Lumiere: Only You ft. DIA" loading="lazy"></div>
+        <div class="caption"><span>Tomi Lumiere</span><span>Only You ft. DIA</span></div>
+      </a>
+      <a class="tile" href="https://www.youtube.com/watch?v=vEuGnAePLiM" data-yt="vEuGnAePLiM" data-artist="Tomi Lumiere" data-title="Beautiful Liar">
+        <div class="frame"><img src="https://i.ytimg.com/vi/vEuGnAePLiM/maxresdefault.jpg" alt="Tomi Lumiere: Beautiful Liar" loading="lazy"></div>
+        <div class="caption"><span>Tomi Lumiere</span><span>Beautiful Liar</span></div>
+      </a>
+      <a class="tile" href="https://www.youtube.com/watch?v=nSpX-948Frk" data-yt="nSpX-948Frk" data-artist="Honey Bhullar" data-title="Anthony Drive">
+        <div class="frame"><img class="fill-4x3" src="https://i.ytimg.com/vi/nSpX-948Frk/maxresdefault.jpg" alt="Honey Bhullar: Anthony Drive" loading="lazy"></div>
+        <div class="caption"><span>Honey Bhullar</span><span>Anthony Drive</span></div>
+      </a>
+      <a class="tile" href="https://www.youtube.com/watch?v=oEy6UBqfpYY" data-yt="oEy6UBqfpYY" data-artist="Honey Bhullar" data-title="Handful">
+        <div class="frame"><img src="https://i.ytimg.com/vi/oEy6UBqfpYY/maxresdefault.jpg" alt="Honey Bhullar: Handful" loading="lazy"></div>
+        <div class="caption"><span>Honey Bhullar</span><span>Handful</span></div>
+      </a>
+      <a class="tile" href="https://www.youtube.com/watch?v=IA23v9-rMr0" data-yt="IA23v9-rMr0" data-artist="Josh Sooch" data-title="Payments (prod. NsD)">
+        <div class="frame"><img src="https://i.ytimg.com/vi/IA23v9-rMr0/maxresdefault.jpg" alt="Josh Sooch: Payments (prod. NsD)" loading="lazy"></div>
+        <div class="caption"><span>Josh Sooch</span><span>Payments (prod. NsD)</span></div>
+      </a>
+      <a class="tile" href="https://www.youtube.com/watch?v=GZWecnb81Tw" data-yt="GZWecnb81Tw" data-artist="Kanda." data-title="Lambos & Raris">
+        <div class="frame"><img class="fill-4x3" src="https://i.ytimg.com/vi/GZWecnb81Tw/maxresdefault.jpg" alt="Kanda.: Lambos &amp; Raris" loading="lazy"></div>
+        <div class="caption"><span>Kanda.</span><span>Lambos &amp; Raris</span></div>
+      </a>
+      <a class="tile" href="https://www.youtube.com/watch?v=lSbuOA6MdPM" data-yt="lSbuOA6MdPM" data-artist="Ferdy" data-title="RR">
+        <div class="frame"><img class="fill-4x3" src="https://i.ytimg.com/vi/lSbuOA6MdPM/maxresdefault.jpg" alt="Ferdy: RR" loading="lazy"></div>
+        <div class="caption"><span>Ferdy</span><span>RR</span></div>
+      </a>
+      <a class="tile" href="https://www.youtube.com/watch?v=BXUwLDGgYg8" data-yt="BXUwLDGgYg8" data-artist="Lil Honcho" data-title="Act Brand New">
+        <div class="frame"><img class="fill-4x3" src="https://i.ytimg.com/vi/BXUwLDGgYg8/maxresdefault.jpg" alt="Lil Honcho: Act Brand New" loading="lazy"></div>
+        <div class="caption"><span>Lil Honcho</span><span>Act Brand New</span></div>
+      </a>
+    </section>
+
+    <section id="contact" class="info">
+      <p class="label">Contact</p>
+      <a class="button" href="mailto:parmarmedialtd@gmail.com">Email me</a>
+    </section>
+  </main>
+
+  <!-- Player: opens over the page when a tile is clicked -->
+  <dialog id="player" class="player">
+    <button class="close" type="button" aria-label="Close">Close</button>
+    <div class="screen"><iframe title="Video player" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div>
+  </dialog>
+
+  <script>
+    // Corner readout: show the artist / title / number of whichever piece is in view.
+    // Only the videos are numbered; the showreel at the top reads 00.
+    const pieces = [...document.querySelectorAll('[data-artist]')];
+    const tiles = [...document.querySelectorAll('.tile')];
+    const pad = n => String(n).padStart(2, '0');
+    document.getElementById('total-count').textContent = pad(tiles.length);
+    const show = el => {
+      document.getElementById('now-artist').textContent = el.dataset.artist;
+      document.getElementById('now-title').textContent = el.dataset.title;
+      document.getElementById('now-count').textContent = pad(tiles.indexOf(el) + 1);
+    };
+    const readout = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) show(e.target); });
+    }, { rootMargin: '-45% 0px -45% 0px' });
+    pieces.forEach(p => readout.observe(p));
+    show(pieces[0]);
+
+    // Player: play the tile's YouTube video on the page instead of leaving the site.
+    const player = document.getElementById('player');
+    const frame = player.querySelector('iframe');
+    tiles.forEach(t => t.addEventListener('click', e => {
+      e.preventDefault();
+      frame.src = `https://www.youtube-nocookie.com/embed/${t.dataset.yt}?autoplay=1&rel=0&modestbranding=1`;
+      player.showModal();
+    }));
+    player.querySelector('.close').addEventListener('click', () => player.close());
+    player.addEventListener('click', e => { if (e.target === player) player.close(); });
+    player.addEventListener('close', () => { frame.src = ''; });
+  </script>
+</body>
+</html>
