@@ -8,13 +8,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=4">
+  <link rel="stylesheet" href="styles.css?v=9">
 </head>
 <body>
   <!-- Corner UI, fixed over everything -->
   <header class="corner top-left"><a class="wordmark" href="#top">Kunal Parmar</a></header>
   <nav class="corner top-right">
-    <a href="#work">Work</a>
+    <a href="#work"><span class="wide-only">Music </span>Videos</a>
+    <a href="#festivals">Festivals</a>
     <a href="#contact">Contact</a>
   </nav>
   <div class="corner bottom-left">
@@ -34,10 +35,15 @@
       <p class="credit">DIR: Kunal Parmar</p>
     </section>
 
+    <div class="tabs" id="tabs" role="tablist">
+      <button class="tab" type="button" role="tab" aria-selected="true" aria-controls="work">Music Videos<sup>14</sup></button>
+      <button class="tab" type="button" role="tab" aria-selected="false" aria-controls="festivals">Festivals<sup>10</sup></button>
+    </div>
+
     <!-- Work index: edge-to-edge grid, one tile per video. data-yt is the YouTube id (opens the player);
          data-artist / data-title feed the corner readout as the tile scrolls into view.
          Thumbnails come from YouTube; swap an <img> for a muted loop from the exports to make a tile move. -->
-    <section id="work" class="grid">
+    <section id="work" class="grid tab-panel" role="tabpanel">
       <a class="tile" href="https://www.youtube.com/watch?v=xV3BI4IyJow" data-yt="xV3BI4IyJow" data-artist="Kanda." data-title="Ball Out ft. Graedo">
         <div class="frame"><img src="https://i.ytimg.com/vi/xV3BI4IyJow/maxresdefault.jpg" alt="Kanda.: Ball Out ft. Graedo" loading="lazy"></div>
         <div class="caption"><span>Kanda.</span><span>Ball Out ft. Graedo</span></div>
@@ -96,6 +102,71 @@
       </a>
     </section>
 
+    <!-- Festival work: one block per festival, horizontal (16:9) videos hosted in media/festival/.
+         To add a video: put NAME.mp4 and a NAME.jpg still in media/festival/ and copy a tile below.
+         Desktop previews the video silently on hover; clicking plays it with sound in the player.
+         A tile with class "wide" spans the full width (used for the recap). -->
+    <div id="festivals" class="tab-panel" role="tabpanel" hidden>
+      <section class="festival" id="stampede-mela">
+        <div class="festival-head">
+          <h2>Stampede Mela</h2>
+          <p>Calgary<br><b>Media</b></p>
+        </div>
+        <div class="reels">
+        <a class="tile wide" href="media/festival/stampede-mela-2026-recap.mp4" data-video="media/festival/stampede-mela-2026-recap.mp4" data-artist="Stampede Mela" data-title="2026 Recap">
+          <div class="frame"><img src="media/festival/stampede-mela-2026-recap.jpg" alt="Stampede Mela: 2026 Recap" loading="lazy"></div>
+          <div class="caption"><span>Stampede Mela</span><span>2026 Recap</span></div>
+        </a>
+        <a class="tile" href="media/festival/stampede-mela-2026-tegi-pannu.mp4" data-video="media/festival/stampede-mela-2026-tegi-pannu.mp4" data-artist="Tegi Pannu" data-title="Stampede Mela 2026">
+          <div class="frame"><img src="media/festival/stampede-mela-2026-tegi-pannu.jpg" alt="Tegi Pannu: Stampede Mela 2026" loading="lazy"></div>
+          <div class="caption"><span>Tegi Pannu</span><span>2026</span></div>
+        </a>
+        <a class="tile" href="media/festival/stampede-mela-2026-bk.mp4" data-video="media/festival/stampede-mela-2026-bk.mp4" data-artist="BK" data-title="Stampede Mela 2026">
+          <div class="frame"><img src="media/festival/stampede-mela-2026-bk.jpg" alt="BK: Stampede Mela 2026" loading="lazy"></div>
+          <div class="caption"><span>BK</span><span>2026</span></div>
+        </a>
+        <a class="tile" href="media/festival/stampede-mela-2026-moga-chani.mp4" data-video="media/festival/stampede-mela-2026-moga-chani.mp4" data-artist="Moga Chani" data-title="Stampede Mela 2026">
+          <div class="frame"><img src="media/festival/stampede-mela-2026-moga-chani.jpg" alt="Moga Chani: Stampede Mela 2026" loading="lazy"></div>
+          <div class="caption"><span>Moga Chani</span><span>2026</span></div>
+        </a>
+        <a class="tile" href="media/festival/stampede-mela-2026-ar-paisley.mp4" data-video="media/festival/stampede-mela-2026-ar-paisley.mp4" data-artist="AR Paisley" data-title="Stampede Mela 2026">
+          <div class="frame"><img src="media/festival/stampede-mela-2026-ar-paisley.jpg" alt="AR Paisley: Stampede Mela 2026" loading="lazy"></div>
+          <div class="caption"><span>AR Paisley</span><span>2026</span></div>
+        </a>
+        </div>
+      </section>
+      <section class="festival" id="6ixmela">
+        <div class="festival-head">
+          <h2>6ixMela</h2>
+          <p>Toronto<br><b>Media</b></p>
+        </div>
+        <!-- 6ixMela videos are 4:3: tiles show them at 4:3 (the wide reel tile crops to 16:9);
+             data-ratio tells the player to open them at 4:3 without black bars. -->
+        <div class="reels four-three">
+        <a class="tile wide" href="media/festival/6ixmela-reel.mp4" data-video="media/festival/6ixmela-reel.mp4" data-ratio="4/3" data-artist="6ixMela" data-title="Festival Reel">
+          <div class="frame"><img src="media/festival/6ixmela-reel.jpg" alt="6ixMela: Festival Reel" loading="lazy"></div>
+          <div class="caption"><span>6ixMela</span><span>Festival Reel</span></div>
+        </a>
+        <a class="tile" href="media/festival/6ixmela-supreme-sidhu.mp4" data-video="media/festival/6ixmela-supreme-sidhu.mp4" data-ratio="4/3" data-artist="Supreme Sidhu" data-title="6ixMela">
+          <div class="frame"><img src="media/festival/6ixmela-supreme-sidhu.jpg" alt="Supreme Sidhu: 6ixMela" loading="lazy"></div>
+          <div class="caption"><span>Supreme Sidhu</span><span>6ixMela</span></div>
+        </a>
+        <a class="tile" href="media/festival/6ixmela-simer.mp4" data-video="media/festival/6ixmela-simer.mp4" data-ratio="4/3" data-artist="Simer" data-title="6ixMela">
+          <div class="frame"><img src="media/festival/6ixmela-simer.jpg" alt="Simer: 6ixMela" loading="lazy"></div>
+          <div class="caption"><span>Simer</span><span>6ixMela</span></div>
+        </a>
+        <a class="tile" href="media/festival/6ixmela-chani-moga.mp4" data-video="media/festival/6ixmela-chani-moga.mp4" data-ratio="4/3" data-artist="Chani &amp; Moga" data-title="6ixMela">
+          <div class="frame"><img src="media/festival/6ixmela-chani-moga.jpg" alt="Chani &amp; Moga: 6ixMela" loading="lazy"></div>
+          <div class="caption"><span>Chani &amp; Moga</span><span>6ixMela</span></div>
+        </a>
+        <a class="tile" href="media/festival/6ixmela-bk.mp4" data-video="media/festival/6ixmela-bk.mp4" data-ratio="4/3" data-artist="BK" data-title="6ixMela">
+          <div class="frame"><img src="media/festival/6ixmela-bk.jpg" alt="BK: 6ixMela" loading="lazy"></div>
+          <div class="caption"><span>BK</span><span>6ixMela</span></div>
+        </a>
+        </div>
+      </section>
+    </div>
+
     <section id="contact" class="info">
       <p class="label">Contact</p>
       <a class="button" href="mailto:parmarmedialtd@gmail.com">Email me</a>
@@ -105,38 +176,79 @@
   <!-- Player: opens over the page when a tile is clicked -->
   <dialog id="player" class="player">
     <button class="close" type="button" aria-label="Close">Close</button>
-    <div class="screen"><iframe title="Video player" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div>
+    <div class="screen"></div>
   </dialog>
 
   <script>
     // Corner readout: show the artist / title / number of whichever piece is in view.
-    // Only the videos are numbered; the showreel at the top reads 00.
-    const pieces = [...document.querySelectorAll('[data-artist]')];
-    const tiles = [...document.querySelectorAll('.tile')];
+    // Numbering counts the tiles in view's own group (Music Videos or Festival); the showreel reads 00.
     const pad = n => String(n).padStart(2, '0');
-    document.getElementById('total-count').textContent = pad(tiles.length);
+    const visible = el => el.offsetParent !== null;
+    const groupOf = el => el.closest('.grid, .tab-panel, main');
     const show = el => {
+      const group = [...groupOf(el).querySelectorAll('.tile')].filter(visible);
       document.getElementById('now-artist').textContent = el.dataset.artist;
       document.getElementById('now-title').textContent = el.dataset.title;
-      document.getElementById('now-count').textContent = pad(tiles.indexOf(el) + 1);
+      document.getElementById('now-count').textContent = pad(group.indexOf(el) + 1);
+      if (group.length) document.getElementById('total-count').textContent = pad(group.length);
     };
     const readout = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) show(e.target); });
+      entries.forEach(e => { if (e.isIntersecting && visible(e.target)) show(e.target); });
     }, { rootMargin: '-45% 0px -45% 0px' });
+    const pieces = [...document.querySelectorAll('[data-artist]')];
     pieces.forEach(p => readout.observe(p));
     show(pieces[0]);
 
-    // Player: play the tile's YouTube video on the page instead of leaving the site.
+    // Tabs: Music Videos | Festival. The #festivals link (nav, or a shared URL) opens the Festival tab.
+    const tabs = [...document.querySelectorAll('.tab')];
+    const openTab = (id, scroll) => {
+      tabs.forEach(t => {
+        const on = t.getAttribute('aria-controls') === id;
+        t.setAttribute('aria-selected', on);
+        document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+      });
+      const first = document.querySelector(`#${id} .tile`);
+      if (first) show(first);
+      if (scroll) document.getElementById('tabs').scrollIntoView();
+    };
+    tabs.forEach(t => t.addEventListener('click', () => {
+      openTab(t.getAttribute('aria-controls'));
+      history.replaceState(null, '', '#' + t.getAttribute('aria-controls'));
+    }));
+    document.querySelectorAll('a[href="#work"], a[href="#festivals"]').forEach(a => a.addEventListener('click', e => {
+      e.preventDefault(); openTab(a.hash.slice(1), true); history.replaceState(null, '', a.hash);
+    }));
+    if (location.hash === '#festivals') { openTab('festivals'); addEventListener('load', () => setTimeout(() => document.getElementById('tabs').scrollIntoView({ behavior: 'instant' }), 0)); }
+
+    // Festival tiles: on devices with a mouse, play a silent preview of the video while hovered.
+    if (matchMedia('(hover: hover)').matches) document.querySelectorAll('.reels .tile').forEach(t => {
+      let v;
+      t.addEventListener('mouseenter', () => {
+        v = Object.assign(document.createElement('video'), { src: t.dataset.video, muted: true, loop: true, playsInline: true });
+        v.className = 'preview';
+        t.querySelector('.frame').append(v);
+        v.play().catch(() => {});
+      });
+      t.addEventListener('mouseleave', () => { if (v) v.remove(); });
+    });
+
+    // Player: YouTube tiles (data-yt) play in an embed; festival tiles (data-video) play their own file.
     const player = document.getElementById('player');
-    const frame = player.querySelector('iframe');
-    tiles.forEach(t => t.addEventListener('click', e => {
+    const screen = player.querySelector('.screen');
+    document.querySelectorAll('.tile').forEach(t => t.addEventListener('click', e => {
       e.preventDefault();
-      frame.src = `https://www.youtube-nocookie.com/embed/${t.dataset.yt}?autoplay=1&rel=0&modestbranding=1`;
+      if (t.dataset.yt) {
+        screen.className = 'screen';
+        screen.innerHTML = `<iframe title="Video player" src="https://www.youtube-nocookie.com/embed/${t.dataset.yt}?autoplay=1&rel=0&modestbranding=1" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>`;
+      } else if (t.dataset.video) {
+        screen.className = 'screen' + (t.dataset.ratio === '4/3' ? ' four-three' : '');
+        screen.innerHTML = `<video src="${t.dataset.video}" controls autoplay playsinline></video>`;
+      } else return; // placeholder tile, no video yet
       player.showModal();
     }));
     player.querySelector('.close').addEventListener('click', () => player.close());
     player.addEventListener('click', e => { if (e.target === player) player.close(); });
-    player.addEventListener('close', () => { frame.src = ''; });
+    player.addEventListener('close', () => { screen.innerHTML = ''; });
   </script>
 </body>
 </html>
