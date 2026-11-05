@@ -304,3 +304,13 @@ a:hover { color: var(--accent); }
   .tab { font-size: 21px; }
   .top-right { gap: 12px; letter-spacing: 0.12em; }
 }
+
+/* One line on the role, above the festival blocks */
+.festival-intro {
+  max-width: 60ch;
+  margin: 0 auto;
+  padding: 0 var(--edge) clamp(32px, 5vw, 56px);
+  text-align: center;
+  color: var(--muted);
+  font-size: 15px;
+}
