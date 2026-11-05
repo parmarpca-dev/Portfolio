@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=10">
+  <link rel="stylesheet" href="styles.css?v=11">
 </head>
 <body>
   <!-- Corner UI, fixed over everything -->
@@ -244,6 +244,7 @@
       } else if (t.dataset.video) {
         screen.className = 'screen' + (t.dataset.ratio === '4/3' ? ' four-three' : '');
         screen.innerHTML = `<video src="${t.dataset.video}" controls autoplay playsinline></video>`;
+        screen.querySelector('video').play().catch(() => {}); // start inside the tap so phones allow sound
       } else return; // placeholder tile, no video yet
       player.showModal();
     }));

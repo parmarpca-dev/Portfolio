@@ -314,3 +314,14 @@ a:hover { color: var(--accent); }
   color: var(--muted);
   font-size: 15px;
 }
+
+/* Bigger tap area for the corner menu links without changing how they look */
+.corner a { padding: 14px 4px; margin: -14px -4px; }
+
+/* Small phones (iPhone SE and similar): tighten the top bar so the menu clears the name */
+@media (max-width: 380px) {
+  .wordmark { font-size: 12px; letter-spacing: 0.14em; }
+  .top-right { gap: 10px; letter-spacing: 0.06em; font-size: 10px; }
+  .tabs { gap: 16px; }
+  .tab { font-size: 19px; }
+}
